@@ -1,1 +1,1 @@
-##Jisoo is zhe best girl!
+## Jisoo is the best girl!
