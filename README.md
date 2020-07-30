@@ -6,7 +6,6 @@
 1. Hexo更换主题
 # ![](https://qgt-style.oss-cn-hangzhou.aliyuncs.com/newcoursep4/g1/g1-2-2/tenor.gif)
 
-git add -A 
-git commit -m ""
-git push origin master
-git push
+1. git add -A 
+1. git commit -m ""
+1. git push origin master   or    git push
