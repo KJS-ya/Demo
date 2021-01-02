@@ -1,0 +1,37 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+ 
+int n;
+struct node {
+	int le, ri;
+}a[5050];
+ 
+bool cmp(node x, node y) {
+	if (x.le == y.le) return x.ri < y.ri;
+	else return x.le < y.le;
+}
+ 
+int main() {
+	cin>>n;
+	for (int i = 0; i < n; i++) {cin>>a[i].le>>a[i].ri;
+			if (a[i].le > a[i].ri) 
+				swap(a[i].le, a[i].ri);
+	}
+	sort(a,a+n,cmp);
+ 
+	int suc = a[0].ri - a[0].le, gap = 0, t1 = a[0].le, t2 = a[0].ri;//这里的初始化很重要
+		//t1是当前保持连续的最早时间，t2是当前覆盖到的最晚结束时间
+ 
+	for (int i = 1; i < n; i++) {
+		if (a[i].le > t2) {//有间断时更新t1
+			gap = max(gap, a[i].le - t2);
+			t1 = a[i].le;
+		}
+		t2 = max(t2, a[i].ri);//每次都更新t2
+		suc = max(suc, t2 - t1);
+	}
+ 
+	cout<<suc<<" "<<gap<<endl;
+	return 0;
+}
